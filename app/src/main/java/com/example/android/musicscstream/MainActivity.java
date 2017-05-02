@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Holds list of artists, albums or songs
      */
-    public String[] items;
+    public static String[] listSource = new String[]{};
 
     /**
      * Creates and populates list of artists
@@ -120,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
                 if (newText != null && !newText.isEmpty()) {
                     List<String> lstFound = new ArrayList<String>();
 
-                    for (String item : artists) {
-                        if (item.contains(newText))
+                    for (String item : listSource) {
+                        if (item.toLowerCase().contains(newText.toLowerCase()))
                             lstFound.add(item);
                     }
 
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
                 ListView lstView = (ListView) findViewById(R.id.list_view1);
                 ArrayAdapter<String> adapter =
-                        new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, artists);
+                        new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, listSource);
 
                 lstView.setAdapter(adapter);
             }
@@ -204,8 +204,6 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setTextColor(getResources().getColor(R.color.colorTextPrimary));
-
-            String[] listSource = new String[]{};
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
