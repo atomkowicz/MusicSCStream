@@ -1,23 +1,22 @@
 package com.example.android.musicscstream;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.*;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +35,26 @@ public class MainActivity extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+    /**
+     * Creates and populates list of songs
+     */
+    static String[] lstSource = new String[]{
+            "Harry",
+            "Ron",
+            "Hermione",
+            "Snape",
+            "Malfoy",
+            "one",
+            "two",
+            "three",
+            "three",
+            "three",
+            "three",
+            "three",
+            "three"
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -63,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+
     }
 
 
@@ -70,8 +91,66 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem item = menu.findItem(R.id.action_search);
+
+        MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //Do some magic
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText != null && !newText.isEmpty()) {
+                    List<String> lstFound = new ArrayList<String>();
+
+                    for (String item : lstSource) {
+                        if (item.contains(newText))
+                            lstFound.add(item);
+                    }
+
+                    Log.i("newText: ", newText);
+
+                    ListView lstView = (ListView) findViewById(R.id.list_view1);
+
+                    ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1,
+                            lstFound);
+                    lstView.setAdapter(adapter);
+                } else {
+                    // serarch is null default
+                    Log.i("search is null: ", newText);
+
+                }
+                return true;
+            }
+        });
+
+        searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                //Do some magic
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+
+                ListView lstView = (ListView) findViewById(R.id.list_view1);
+                ArrayAdapter adapter =
+                        new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, lstSource);
+                lstView.setAdapter(adapter);
+            }
+        });
+
+
+        searchView.setMenuItem(item);
+
+
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -79,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
 
 
         return super.onOptionsItemSelected(item);
@@ -116,7 +194,14 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setTextColor(getResources().getColor(R.color.colorTextPrimary));
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+
+
+            ListView lstView = (ListView) rootView.findViewById(R.id.list_view1);
+            ArrayAdapter adapter =
+                    new ArrayAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1,
+                            lstSource);
+            lstView.setAdapter(adapter);
             return rootView;
         }
     }
@@ -157,4 +242,6 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
     }
+
+
 }
