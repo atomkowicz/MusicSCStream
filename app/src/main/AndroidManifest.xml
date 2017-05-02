@@ -12,26 +12,20 @@
 		<activity
 			android:name=".MainActivity"
 			android:label="@string/app_name"
-			android:theme="@style/AppTheme">
+			android:theme="@style/AppTheme.NoActionBar">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
 
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
-			<meta-data
-				android:name="android.support.PARENT_ACTIVITY"
-				android:value="com.example.android.musicscstream.MainActivity"/>
 		</activity>
 		<activity android:name=".SongActivity"
-				  android:theme="@style/AppTheme.ActionBar"
 				  android:parentActivityName=".MainActivity">
 		</activity>
 		<activity android:name=".ArtistAcitvity"
-				  android:theme="@style/AppTheme.ActionBar"
 				  android:parentActivityName=".MainActivity">
 		</activity>
 		<activity android:name=".AlbumActivity"
-				  android:theme="@style/AppTheme.ActionBar"
 				  android:parentActivityName=".MainActivity">
 		</activity>
 	</application>

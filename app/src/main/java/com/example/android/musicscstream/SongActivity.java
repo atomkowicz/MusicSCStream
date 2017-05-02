@@ -2,6 +2,7 @@ package com.example.android.musicscstream;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 public class SongActivity extends AppCompatActivity {
 
@@ -9,5 +10,10 @@ public class SongActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.song_toolbar);
+        myToolbar.setTitleTextColor(android.graphics.Color.WHITE);
+        myToolbar.setTitle("Now Playing");
+        setSupportActionBar(myToolbar);
     }
 }

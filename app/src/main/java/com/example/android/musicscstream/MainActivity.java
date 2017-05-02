@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,7 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Creates and populates list of artists
      */
-    static String[] artists= generateList("Artist");
+    static String[] artists = generateList("Artist");
     /**
      * Creates and populates list of albums
      */
@@ -225,18 +223,24 @@ public class MainActivity extends AppCompatActivity {
             lstView.setAdapter(adapter);
 
 
-
             lstView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    // Get song title from the string array with song titles
-//                    String orderedSong = image_titles[position];
+
+                    Intent formIntend = new Intent();
 
                     // Create new intent to open {@link TabbedActivity}
-                    Intent formIntend = new Intent(getContext(), ArtistAcitvity.class);
-
-                    // Pass parameter to a new activity
-//                    formIntend.putExtra("song", orderedSong);
+                    switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                        case 1:
+                            formIntend = new Intent(getContext(), ArtistAcitvity.class);
+                            break;
+                        case 2:
+                            formIntend = new Intent(getContext(), AlbumActivity.class);
+                            break;
+                        case 3:
+                            formIntend = new Intent(getContext(), SongActivity.class);
+                            break;
+                    }
 
                     // Start the new activity
                     startActivity(formIntend);

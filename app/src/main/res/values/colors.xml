@@ -6,5 +6,7 @@
 	<color name="colorSecondaryDark">#443a4a</color>
 	<color name="colorTextPrimary">#ffffff</color>
 	<color name="colorDivider">#353335</color>
+	<color name="colorFeaturedDark">#262f34</color>
+	<color name="colorFeaturedMedium">#04a5be</color>
 
 </resources>
