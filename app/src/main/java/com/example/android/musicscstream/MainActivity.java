@@ -1,5 +1,6 @@
 package com.example.android.musicscstream;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.*;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -221,6 +223,26 @@ public class MainActivity extends AppCompatActivity {
             ArrayAdapter<String> adapter =
                     new ArrayAdapter<String>(rootView.getContext(), R.layout.artist_list_item, listSource);
             lstView.setAdapter(adapter);
+
+
+
+            lstView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    // Get song title from the string array with song titles
+//                    String orderedSong = image_titles[position];
+
+                    // Create new intent to open {@link TabbedActivity}
+                    Intent formIntend = new Intent(getContext(), ArtistAcitvity.class);
+
+                    // Pass parameter to a new activity
+//                    formIntend.putExtra("song", orderedSong);
+
+                    // Start the new activity
+                    startActivity(formIntend);
+                }
+            });
+
             return rootView;
         }
     }
