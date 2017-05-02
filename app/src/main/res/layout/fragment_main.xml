@@ -19,7 +19,8 @@
 			  android:layout_height="match_parent"
 			  android:divider="@color/colorDivider"
 			  android:dividerHeight="1dp"
-			  android:textColor="@color/colorTextPrimary">
+			  android:textColor="@color/colorTextPrimary"
+	>
 
 	</ListView>
 

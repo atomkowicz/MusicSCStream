@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,23 +37,35 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     /**
+     * Holds list of artists, albums or songs
+     */
+    public String[] items;
+
+    /**
+     * Creates and populates list of artists
+     */
+    static String[] artists= generateList("Artist");
+    /**
+     * Creates and populates list of albums
+     */
+    static String[] albums = generateList("Album");
+    /**
      * Creates and populates list of songs
      */
-    static String[] lstSource = new String[]{
-            "Harry",
-            "Ron",
-            "Hermione",
-            "Snape",
-            "Malfoy",
-            "one",
-            "two",
-            "three",
-            "three",
-            "three",
-            "three",
-            "three",
-            "three"
-    };
+    static String[] songs = generateList("Song");
+
+    /**
+     * Returns sample list of 20 string elements
+     */
+    static String[] generateList(String listType) {
+        String[] list = new String[20];
+
+        for (int i = 0; i < 20; i++) {
+            list[i] = listType + " " + (i + 1);
+        }
+
+        return list;
+    }
 
 
     @Override
@@ -107,22 +120,19 @@ public class MainActivity extends AppCompatActivity {
                 if (newText != null && !newText.isEmpty()) {
                     List<String> lstFound = new ArrayList<String>();
 
-                    for (String item : lstSource) {
+                    for (String item : artists) {
                         if (item.contains(newText))
                             lstFound.add(item);
                     }
 
-                    Log.i("newText: ", newText);
-
                     ListView lstView = (ListView) findViewById(R.id.list_view1);
 
-                    ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1,
-                            lstFound);
+                    ArrayAdapter<String> adapter =
+                            new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, lstFound);
                     lstView.setAdapter(adapter);
+
                 } else {
                     // serarch is null default
-                    Log.i("search is null: ", newText);
-
                 }
                 return true;
             }
@@ -138,8 +148,9 @@ public class MainActivity extends AppCompatActivity {
             public void onSearchViewClosed() {
 
                 ListView lstView = (ListView) findViewById(R.id.list_view1);
-                ArrayAdapter adapter =
-                        new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, lstSource);
+                ArrayAdapter<String> adapter =
+                        new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, artists);
+
                 lstView.setAdapter(adapter);
             }
         });
@@ -158,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -194,13 +204,24 @@ public class MainActivity extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setTextColor(getResources().getColor(R.color.colorTextPrimary));
-//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
 
+            String[] listSource = new String[]{};
+
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    listSource = artists;
+                    break;
+                case 2:
+                    listSource = albums;
+                    break;
+                case 3:
+                    listSource = songs;
+                    break;
+            }
 
             ListView lstView = (ListView) rootView.findViewById(R.id.list_view1);
-            ArrayAdapter adapter =
-                    new ArrayAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1,
-                            lstSource);
+            ArrayAdapter<String> adapter =
+                    new ArrayAdapter<String>(rootView.getContext(), R.layout.artist_list_item, listSource);
             lstView.setAdapter(adapter);
             return rootView;
         }
