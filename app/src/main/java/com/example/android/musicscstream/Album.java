@@ -34,8 +34,8 @@ public class Album {
         this.imageId = artistImageId;
 
 
-        for (int i = 0; i < 10; i++) {
-            songs.add(new Song("Sound Track " + i, R.drawable.album1));
+        for (int i = 0; i < 8; i++) {
+            songs.add(new Song("Track " + i, R.drawable.album1));
         }
     }
 

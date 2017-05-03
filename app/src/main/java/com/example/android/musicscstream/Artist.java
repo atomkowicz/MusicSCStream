@@ -1,5 +1,9 @@
 package com.example.android.musicscstream;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.Resources;
+
 import java.util.ArrayList;
 
 public class Artist {
@@ -28,12 +32,17 @@ public class Artist {
     }
 
 
-    public Artist(String artistName, int artistImageId) {
+    public Artist(Context context, String artistName, int artistImageId) {
         this.artistName = artistName;
         this.imageId = artistImageId;
 
-        for (int i = 0; i < 10; i++) {
-            albums.add(new Album("Album " + i, R.drawable.album1));
+        Resources res = context.getResources();
+
+        for (int i = 0; i < 6; i++) {
+            int j = i + 1;
+            String imgName = "album_" + j + "_thumb";
+            int resID = res.getIdentifier(imgName, "drawable", context.getPackageName());
+            albums.add(new Album("Album " + i + ", " + artistName, resID));
         }
     }
 

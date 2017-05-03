@@ -17,7 +17,6 @@ import android.widget.ListView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             int j = i + 1;
             String imgName = "artist_" + j + "_thumb";
             int resID = res.getIdentifier(imgName, "drawable", this.getPackageName());
-            artists.add(new Artist("Artist " + j , resID));
+            artists.add(new Artist(this, "Artist " + j, resID));
         }
     }
 
@@ -202,23 +201,19 @@ public class MainActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
-                case 1:
-                    listSource = artists;
-                    break;
-                case 2:
-                    listSource = artists;
-                    break;
-                case 3:
-                    listSource = artists;
-                    break;
-            }
-
             ListView listView = (ListView) rootView.findViewById(R.id.list_view1);
 
-            ArtistListAdapter adapter = new ArtistListAdapter(getActivity(), listSource);
-
-            listView.setAdapter(adapter);
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    listView.setAdapter(new ArtistListAdapter(getActivity(), artists));
+                    break;
+                case 2:
+                    listView.setAdapter(new AlbumListAdapter(getActivity(), albums));
+                    break;
+                case 3:
+                    listView.setAdapter(new SongListAdapter(getActivity(), songs));
+                    break;
+            }
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
