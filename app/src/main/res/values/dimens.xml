@@ -9,4 +9,10 @@
 	<dimen name="icon_padding">16dp</dimen>
 	<dimen name="icon_large">40dp</dimen>
 
+	<!-- Default paddings -->
+	<dimen name="activity_horizontal_padding">16dp</dimen>
+	<dimen name="activity_vertical_padding">16dp</dimen>
+	<dimen name="activity_padding_bottom_large">60dp</dimen>
+	<dimen name="activity_padding_bottom_medium">32dp</dimen>
+
 </resources>
