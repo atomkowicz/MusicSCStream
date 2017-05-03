@@ -55,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
         Resources res = this.getResources();
 
-        for (int i = 0; i < 8; i++) {
-            int resID = res.getIdentifier("artist_" + (i + 1) + "_thumb", "drawable", this.getPackageName());
-            artists.add(new Artist("Artist " + i, resID));
+        for (int i = 0; i < 10; i++) {
+            int j = i + 1;
+            String imgName = "artist_" + j + "_thumb";
+            int resID = res.getIdentifier(imgName, "drawable", this.getPackageName());
+            artists.add(new Artist("Artist " + j , resID));
         }
     }
 
