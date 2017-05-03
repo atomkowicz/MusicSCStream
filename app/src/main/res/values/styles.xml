@@ -46,5 +46,23 @@
 		<!-- Hint for edit text -->
 		<item name="android:hint">@string/search_hint</item>
 	</style>
+	<style name="BottomToolbarHeading">
+		<item name="android:textColor">@color/colorTextPrimary</item>
+		<item name="android:textSize">18sp</item>
+	</style>
+	<style name="BoxShadow">
+		<item name="android:shadowColor">#000000</item>
+		<item name="android:shadowDx">-3</item>
+		<item name="android:shadowDy">-3</item>
+	</style>
+	<style name="HeadingMedium">
+		<item name="android:textColor">@color/colorTextPrimary</item>
+		<item name="android:textSize">16sp</item>
+	</style>
+	<style name="HeadingSmall">
+		<item name="android:textColor">@color/colorFeaturedMedium</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+
 
 </resources>

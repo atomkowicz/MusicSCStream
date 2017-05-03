@@ -155,9 +155,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         searchView.setMenuItem(item);
-
 
         return true;
     }
