@@ -1,6 +1,7 @@
 package com.example.android.musicscstream;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -43,24 +44,20 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Creates and populates list of artists
      */
-    static ArrayList<Artist> artists = new ArrayList<Artist>();
-
-    /**
-     * Creates and populates list of albums
-     */
-    static ArrayList<Album> albums = new ArrayList<Album>();
-    /**
-     * Creates and populates list of songs
-     */
-    static ArrayList<Song> songs = new ArrayList<Song>();
+    private static ArrayList<Artist> artists = new ArrayList<Artist>();
+    private static ArrayList<Album> albums = new ArrayList<Album>();
+    private static ArrayList<Song> songs = new ArrayList<Song>();
 
     /**
      * Returns sample list of 20 string elements
      */
-    public static void generateSampleData() {
+    public void generateSampleData() {
 
-        for (int i = 0; i < 12; i++) {
-            artists.add(new Artist("Artist " + i, R.drawable.artist_1_thumb));
+        Resources res = this.getResources();
+
+        for (int i = 0; i < 8; i++) {
+            int resID = res.getIdentifier("artist_" + (i + 1) + "_thumb", "drawable", this.getPackageName());
+            artists.add(new Artist("Artist " + i, resID));
         }
     }
 
@@ -73,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        generateSampleData();
+        populateListsOfAlbumsAndSongs();
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
     }
 
 
@@ -147,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -156,6 +154,20 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void populateListsOfAlbumsAndSongs() {
+
+        for (Artist artist : artists) {
+
+            for (Album album : artist.getAlbums()) {
+                albums.add(album);
+
+                for (Song song : artist.getSongs()) {
+                    songs.add(song);
+                }
+            }
+        }
     }
 
     /**
@@ -193,16 +205,17 @@ public class MainActivity extends AppCompatActivity {
                     listSource = artists;
                     break;
                 case 2:
-                    listSource = albums;
+                    listSource = artists;
                     break;
                 case 3:
-                    listSource = songs;
+                    listSource = artists;
                     break;
             }
 
             ListView listView = (ListView) rootView.findViewById(R.id.list_view1);
-            ArrayAdapter<String> adapter =
-                    new ArrayAdapter<String>(rootView.getContext(), R.layout.artist_list_item, listSource);
+
+            ArtistListAdapter adapter = new ArtistListAdapter(getActivity(), listSource);
+
             listView.setAdapter(adapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

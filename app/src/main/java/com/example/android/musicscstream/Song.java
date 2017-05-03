@@ -1,5 +1,7 @@
 package com.example.android.musicscstream;
 
+import java.util.ArrayList;
+
 /**
  * Created by Aga on 5/3/2017.
  */
@@ -18,18 +20,19 @@ public class Song {
         songName = pArtistName;
     }
 
-    public int getArtistImageId() {
+    public int getImageId() {
         return imageId;
     }
 
-    public void setArtistImageId(int pArtistImageId) {
-        imageId = pArtistImageId;
+    public void setImageId(int pImageId) {
+        imageId = pImageId;
     }
 
 
     public Song(String artistName, int artistImageId) {
         this.songName = artistName;
         this.imageId = artistImageId;
+
     }
 
     public boolean hasImage() {

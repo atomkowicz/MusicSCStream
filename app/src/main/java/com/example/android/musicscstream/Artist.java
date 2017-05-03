@@ -9,6 +9,7 @@ public class Artist {
     private static final int IMAGE_NOT_AVAILABLE = -1;
 
     private ArrayList<Album> albums = new ArrayList<Album>();
+    private ArrayList<Song> allSongs = new ArrayList<Song>();
 
     public String getArtistName() {
         return artistName;
@@ -34,7 +35,21 @@ public class Artist {
         for (int i = 0; i < 10; i++) {
             albums.add(new Album("Album " + i, R.drawable.album1));
         }
+    }
 
+    public ArrayList<Album> getAlbums() {
+        return albums;
+    }
+
+    public ArrayList<Song> getSongs() {
+        for (Album album : albums) {
+            ArrayList<Song> songs = album.getSongs();
+
+            for (Song song : songs) {
+                allSongs.add(song);
+            }
+        }
+        return allSongs;
     }
 
     public boolean hasImage() {
