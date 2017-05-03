@@ -22,7 +22,7 @@
 		<activity android:name=".SongActivity"
 				  android:parentActivityName=".MainActivity">
 		</activity>
-		<activity android:name=".ArtistAcitvity"
+		<activity android:name=".ArtistActivity"
 				  android:parentActivityName=".MainActivity">
 		</activity>
 		<activity android:name=".AlbumActivity"

@@ -13,7 +13,6 @@ import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.ArrayList;
@@ -125,11 +124,11 @@ public class MainActivity extends AppCompatActivity {
                             lstFound.add(item);
                     }
 
-                    ListView lstView = (ListView) findViewById(R.id.list_view1);
+                    ListView listView = (ListView) findViewById(R.id.list_view1);
 
                     ArrayAdapter<String> adapter =
                             new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, lstFound);
-                    lstView.setAdapter(adapter);
+                    listView.setAdapter(adapter);
 
                 } else {
                     // serarch is null default
@@ -147,11 +146,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSearchViewClosed() {
 
-                ListView lstView = (ListView) findViewById(R.id.list_view1);
+                ListView listView = (ListView) findViewById(R.id.list_view1);
                 ArrayAdapter<String> adapter =
                         new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, listSource);
 
-                lstView.setAdapter(adapter);
+                listView.setAdapter(adapter);
             }
         });
 
@@ -200,8 +199,8 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setTextColor(getResources().getColor(R.color.colorTextPrimary));
+//            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+//            textView.setTextColor(getResources().getColor(R.color.colorTextPrimary));
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
@@ -215,13 +214,12 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-            ListView lstView = (ListView) rootView.findViewById(R.id.list_view1);
+            ListView listView = (ListView) rootView.findViewById(R.id.list_view1);
             ArrayAdapter<String> adapter =
                     new ArrayAdapter<String>(rootView.getContext(), R.layout.artist_list_item, listSource);
-            lstView.setAdapter(adapter);
+            listView.setAdapter(adapter);
 
-
-            lstView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -230,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
                     // Create new intent to open {@link TabbedActivity}
                     switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                         case 1:
-                            formIntend = new Intent(getContext(), ArtistAcitvity.class);
+                            formIntend = new Intent(getContext(), ArtistActivity.class);
                             break;
                         case 2:
                             formIntend = new Intent(getContext(), AlbumActivity.class);
