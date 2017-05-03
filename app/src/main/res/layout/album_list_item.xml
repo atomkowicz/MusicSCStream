@@ -3,7 +3,7 @@
 			  android:id="@+id/album_list_item"
 			  android:orientation="horizontal"
 			  android:layout_width="match_parent"
-			  android:layout_height="match_parent">
+			  android:layout_height="70dp">
 
 	<ImageView
 		android:id="@+id/list_item_album_image"
