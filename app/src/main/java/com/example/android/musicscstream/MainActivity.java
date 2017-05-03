@@ -38,32 +38,30 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Holds list of artists, albums or songs
      */
-    public static String[] listSource = new String[]{};
+    public static ArrayList listSource = new ArrayList();
 
     /**
      * Creates and populates list of artists
      */
-    static String[] artists = generateList("Artist", 10);
+    static ArrayList<Artist> artists = new ArrayList<Artist>();
+
     /**
      * Creates and populates list of albums
      */
-    static String[] albums = generateList("Album", 20);
+    static ArrayList<Album> albums = new ArrayList<Album>();
     /**
      * Creates and populates list of songs
      */
-    static String[] songs = generateList("Song", 100);
+    static ArrayList<Song> songs = new ArrayList<Song>();
 
     /**
      * Returns sample list of 20 string elements
      */
-    static String[] generateList(String listType, int amount) {
-        String[] list = new String[amount];
+    public static void generateSampleData() {
 
-        for (int i = 0; i < amount; i++) {
-            list[i] = listType + " " + (i + 1);
+        for (int i = 0; i < 12; i++) {
+            artists.add(new Artist("Artist " + i, R.drawable.artist_1_thumb));
         }
-
-        return list;
     }
 
 
@@ -106,23 +104,23 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (newText != null && !newText.isEmpty()) {
-                    List<String> lstFound = new ArrayList<String>();
-
-                    for (String item : listSource) {
-                        if (item.toLowerCase().contains(newText.toLowerCase()))
-                            lstFound.add(item);
-                    }
-
-                    ListView listView = (ListView) findViewById(R.id.list_view1);
-
-                    ArrayAdapter<String> adapter =
-                            new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, lstFound);
-                    listView.setAdapter(adapter);
-
-                } else {
-                    // serarch is null default
-                }
+//                if (newText != null && !newText.isEmpty()) {
+//                    List<String> lstFound = new ArrayList<String>();
+//
+//                    for (String item : listSource) {
+//                        if (item.toLowerCase().contains(newText.toLowerCase()))
+//                            lstFound.add(item);
+//                    }
+//
+//                    ListView listView = (ListView) findViewById(R.id.list_view1);
+//
+//                    ArrayAdapter<String> adapter =
+//                            new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, lstFound);
+//                    listView.setAdapter(adapter);
+//
+//                } else {
+//                    // serarch is null default
+//                }
                 return true;
             }
         });

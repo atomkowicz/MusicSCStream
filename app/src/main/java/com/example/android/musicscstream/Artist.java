@@ -1,13 +1,14 @@
 package com.example.android.musicscstream;
 
-/**
- * Created by Aga on 5/3/2017.
- */
+import java.util.ArrayList;
 
 public class Artist {
+
     private String artistName;
-    private int artistImageId = IMAGE_NOT_AVAILABLE;
+    private int imageId = IMAGE_NOT_AVAILABLE;
     private static final int IMAGE_NOT_AVAILABLE = -1;
+
+    private ArrayList<Album> albums = new ArrayList<Album>();
 
     public String getArtistName() {
         return artistName;
@@ -17,21 +18,26 @@ public class Artist {
         artistName = pArtistName;
     }
 
-    public int getArtistImageId() {
-        return artistImageId;
+    public int getImageId() {
+        return imageId;
     }
 
-    public void setArtistImageId(int pArtistImageId) {
-        artistImageId = pArtistImageId;
+    public void setImageId(int pImageId) {
+        imageId = pImageId;
     }
 
 
     public Artist(String artistName, int artistImageId) {
         this.artistName = artistName;
-        this.artistImageId = artistImageId;
+        this.imageId = artistImageId;
+
+        for (int i = 0; i < 10; i++) {
+            albums.add(new Album("Album " + i, R.drawable.album1));
+        }
+
     }
 
     public boolean hasImage() {
-        return artistImageId != IMAGE_NOT_AVAILABLE;
+        return imageId != IMAGE_NOT_AVAILABLE;
     }
 }
