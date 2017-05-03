@@ -43,23 +43,23 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Creates and populates list of artists
      */
-    static String[] artists = generateList("Artist");
+    static String[] artists = generateList("Artist", 10);
     /**
      * Creates and populates list of albums
      */
-    static String[] albums = generateList("Album");
+    static String[] albums = generateList("Album", 20);
     /**
      * Creates and populates list of songs
      */
-    static String[] songs = generateList("Song");
+    static String[] songs = generateList("Song", 100);
 
     /**
      * Returns sample list of 20 string elements
      */
-    static String[] generateList(String listType) {
-        String[] list = new String[20];
+    static String[] generateList(String listType, int amount) {
+        String[] list = new String[amount];
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < amount; i++) {
             list[i] = listType + " " + (i + 1);
         }
 
@@ -85,16 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
 
     }
 
@@ -199,8 +189,6 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-//            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-//            textView.setTextColor(getResources().getColor(R.color.colorTextPrimary));
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:

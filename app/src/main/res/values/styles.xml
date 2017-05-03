@@ -13,9 +13,12 @@
 	</style>
 	<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+	<style name="ToolbarColoredBackArrow" parent="ThemeOverlay.AppCompat.ActionBar">
+		<item name="colorControlNormal">@color/colorTextPrimary</item>
+	</style>
 
 	<style name="MyTextViewStyle" parent="android:Widget.TextView">
-		<item name="android:textColor">#FFFFFF</item>
+		<item name="android:textColor">@color/colorTextPrimary</item>
 	</style>
 
 	<style name="MaterialSearchViewStyle">

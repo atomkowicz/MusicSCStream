@@ -2,8 +2,10 @@ package com.example.android.musicscstream;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -21,8 +23,7 @@ public class ArtistActivity extends AppCompatActivity {
         myToolbar.setTitleTextColor(android.graphics.Color.WHITE);
         setSupportActionBar(myToolbar);
 
-
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
