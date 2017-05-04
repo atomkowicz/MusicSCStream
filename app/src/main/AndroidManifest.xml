@@ -20,12 +20,15 @@
 			</intent-filter>
 		</activity>
 		<activity android:name=".SongActivity"
+				  android:label="Now Playing"
 				  android:parentActivityName=".MainActivity">
 		</activity>
 		<activity android:name=".ArtistActivity"
+				  android:label="Artist"
 				  android:parentActivityName=".MainActivity">
 		</activity>
 		<activity android:name=".AlbumActivity"
+				  android:label="Album"
 				  android:parentActivityName=".MainActivity">
 		</activity>
 	</application>
