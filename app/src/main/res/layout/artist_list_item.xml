@@ -27,7 +27,7 @@
 			android:id="@+id/list_item_artist_info"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="dasdfsdfsdf"
+			android:text="@string/some_details"
 			style="@style/HeadingSmall"/>
 
 	</LinearLayout>

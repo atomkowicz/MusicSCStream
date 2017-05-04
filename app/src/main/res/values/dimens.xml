@@ -19,4 +19,16 @@
 	<dimen name="toolbar_bottom_height">100dp</dimen>
 	<dimen name="icon_padding">16dp</dimen>
 
+	<dimen name="viewpager_margin_top">110dp</dimen>
+	<dimen name="photo_height_large">280dp</dimen>
+	<dimen name="photo_height_xlarge">370dp</dimen>
+	<dimen name="icon_height_medium">20dp</dimen>
+	<dimen name="photo_container_height_large">300dp</dimen>
+	<dimen name="text_view_margin_bottom_large">85dp</dimen>
+	<dimen name="text_view_margin_bottom_medium">45dp</dimen>
+	<dimen name="text_view_margin_bottom_small">30dp</dimen>
+	<dimen name="text_view_margin_bottom_xsmall">22dp</dimen>
+	<dimen name="albums_container_height">130dp</dimen>
+	<dimen name="albums_cover_dimen">110dp</dimen>
+
 </resources>

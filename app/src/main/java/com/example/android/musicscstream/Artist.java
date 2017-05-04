@@ -48,6 +48,7 @@ public class Artist implements Serializable {
 
         Resources res = context.getResources();
 
+        // Generate albums for current artist
         for (int i = 0; i < 6; i++) {
             int j = i + 1;
             String imgName = "album_" + j + "_thumb";

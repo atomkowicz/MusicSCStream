@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.*;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private static ArrayList<Song> songs = new ArrayList<Song>();
 
     /**
-     * Returns sample list of 20 string elements
+     * Returns sample list of objects
      */
     public void generateSampleData() {
 
@@ -65,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -89,38 +89,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         MenuItem item = menu.findItem(R.id.action_search);
 
+        // Handle search in fragments
         MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //Do some magic
+                //TODO: add seach
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-//                if (newText != null && !newText.isEmpty()) {
-//                    List<String> lstFound = new ArrayList<String>();
-//
-//                    for (String item : listSource) {
-//                        if (item.toLowerCase().contains(newText.toLowerCase()))
-//                            lstFound.add(item);
-//                    }
-//
-//                    ListView listView = (ListView) findViewById(R.id.list_view1);
-//
-//                    ArrayAdapter<String> adapter =
-//                            new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, lstFound);
-//                    listView.setAdapter(adapter);
-//
-//                } else {
-//                    // serarch is null default
-//                }
+                //TODO: add seach
                 return true;
             }
         });
@@ -128,17 +114,12 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
-                //Do some magic
+                //TODO: add seach
             }
 
             @Override
             public void onSearchViewClosed() {
-
-                ListView listView = (ListView) findViewById(R.id.list_view1);
-                ArrayAdapter<String> adapter =
-                        new ArrayAdapter<String>(MainActivity.this, R.layout.artist_list_item, listSource);
-
-                listView.setAdapter(adapter);
+                //TODO: add seach
             }
         });
 
@@ -149,10 +130,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }
@@ -197,13 +178,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             ListView listView = (ListView) rootView.findViewById(R.id.list_view1);
 
-            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+            final int activeFragmentNumber = getArguments().getInt(ARG_SECTION_NUMBER);
+
+            // Choose right adapter for ListView.
+            // ListView will display list of artists, albums or songs
+            switch (activeFragmentNumber) {
                 case 1:
                     listView.setAdapter(new ArtistListAdapter(getActivity(), artists));
                     break;
@@ -222,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent();
 
                     // Create new intent to open {@link TabbedActivity}
-                    switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                    switch (activeFragmentNumber) {
                         case 1:
                             intent.setClass(getContext(), ArtistActivity.class);
                             intent.putExtra("artist", artists.get(position));

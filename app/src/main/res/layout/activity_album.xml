@@ -17,14 +17,13 @@
 			android:layout_width="match_parent"
 			android:layout_height="?attr/actionBarSize"
 			android:background="?attr/colorPrimary"
-			android:elevation="4dp"
 			android:theme="@style/ToolbarColoredBackArrow"
 			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 		<ImageView
 			android:id="@+id/album_image"
 			android:layout_width="match_parent"
-			android:layout_height="370dp"
+			android:layout_height="@dimen/photo_height_xlarge"
 			android:scaleType="fitCenter"
 			android:gravity="center"
 			android:src="@drawable/album1"/>

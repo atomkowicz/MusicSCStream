@@ -28,7 +28,7 @@ public class Album implements Serializable {
         this.imageId = imageId;
     }
 
-
+    // Generate songs for current albums
     public Album(String albumName, int artistImageId) {
         this.albumName = albumName;
         this.imageId = artistImageId;

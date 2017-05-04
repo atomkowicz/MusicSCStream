@@ -19,17 +19,21 @@ public class ArtistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artist);
 
+        // Add toolbar to activity
         Toolbar myToolbar = (Toolbar) findViewById(R.id.artist_toolbar);
         myToolbar.setTitleTextColor(android.graphics.Color.WHITE);
         setSupportActionBar(myToolbar);
 
+        // Add "Up" button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Get current artist from intent
         Intent intent = getIntent();
         Artist artist = (Artist) intent.getSerializableExtra("artist");
 
         String artistName = artist.getArtistName();
 
+        // Populate views with artist details
         TextView nameTextView = (TextView) findViewById(R.id.artist_name);
         nameTextView.setText(artistName);
 
@@ -43,12 +47,14 @@ public class ArtistActivity extends AppCompatActivity {
         TextView artistAllSongsTextView = (TextView) findViewById(R.id.artist_songs_all);
         artistAllSongsTextView.setText(artistAllSongs + " songs");
 
+        // Display all albums of current artist
         LinearLayout album1 = (LinearLayout) findViewById(R.id.artist_album_1);
         LinearLayout album2 = (LinearLayout) findViewById(R.id.artist_album_2);
         LinearLayout album3 = (LinearLayout) findViewById(R.id.artist_album_3);
 
         final ArrayList<Album> albums = artist.getAlbums();
 
+        // Set links to respective albums activities
         album1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +89,7 @@ public class ArtistActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);

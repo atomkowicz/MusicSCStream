@@ -6,4 +6,5 @@
 	<string name="now_playing">Now Playing</string>
 	<string name="artist">Artist</string>
 	<string name="album">Album</string>
+	<string name="some_details">some details</string>
 </resources>

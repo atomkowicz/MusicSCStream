@@ -6,6 +6,6 @@
 		android:id="@+id/action_search"
 		android:icon="@drawable/ic_action_action_search"
 		android:orderInCategory="100"
-		android:title="ggg"
+		android:title="@string/action_search"
 		app:showAsAction="always" />
 </menu>

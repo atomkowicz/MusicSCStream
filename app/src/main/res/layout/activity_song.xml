@@ -24,7 +24,7 @@
 		<ImageView
 			android:id="@+id/album_image"
 			android:layout_width="match_parent"
-			android:layout_height="370dp"
+			android:layout_height="@dimen/photo_height_xlarge"
 			android:scaleType="fitCenter"
 			android:gravity="center"
 			android:src="@drawable/now_playing"/>
@@ -41,11 +41,10 @@
 		<ImageView
 			android:id="@+id/controls"
 			android:layout_width="match_parent"
-			android:layout_height="100dp"
+			android:layout_height="wrap_content"
 			android:scaleType="fitCenter"
 			android:src="@drawable/controls"
 			android:layout_marginTop="@dimen/activity_vertical_margin"/>
 	</LinearLayout>
-
 
 </android.support.constraint.ConstraintLayout>
