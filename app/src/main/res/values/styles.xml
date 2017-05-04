@@ -58,6 +58,10 @@
 		<item name="android:shadowDx">-3</item>
 		<item name="android:shadowDy">-3</item>
 	</style>
+	<style name="HeadingLarge">
+		<item name="android:textColor">@color/colorTextPrimary</item>
+		<item name="android:textSize">24sp</item>
+	</style>
 	<style name="HeadingMedium">
 		<item name="android:textColor">@color/colorTextPrimary</item>
 		<item name="android:textSize">16sp</item>

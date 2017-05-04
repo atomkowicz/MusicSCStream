@@ -1,17 +1,11 @@
 package com.example.android.musicscstream;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 import android.widget.TextView;
 
 public class ArtistActivity extends AppCompatActivity {
@@ -34,6 +28,16 @@ public class ArtistActivity extends AppCompatActivity {
 
         TextView nameTextView = (TextView) findViewById(R.id.artist_name);
         nameTextView.setText(artistName);
+
+        int artistAllAlbums = artist.getAlbums().size();
+
+        TextView artistAllAlbumsTextView = (TextView) findViewById(R.id.artist_albums_all);
+        artistAllAlbumsTextView.setText(artistAllAlbums + " Albums");
+
+        int artistAllSongs = artist.getSongs().size();
+
+        TextView artistAllSongsTextView = (TextView) findViewById(R.id.artist_songs_all);
+        artistAllSongsTextView.setText(artistAllSongs + " songs");
 
     }
 

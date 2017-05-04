@@ -73,7 +73,7 @@
 				android:id="@+id/selected_track_image"
 				android:layout_width="@dimen/toolbar_bottom_height"
 				android:layout_height="@dimen/toolbar_bottom_height"
-				android:src="@drawable/album1"/>
+				android:src="@drawable/album1_now_playing"/>
 
 			<LinearLayout
 				android:layout_width="0dp"

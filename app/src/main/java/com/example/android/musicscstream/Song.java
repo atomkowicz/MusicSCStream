@@ -10,33 +10,16 @@ import java.util.ArrayList;
 public class Song implements Serializable {
 
     private String songName;
-    private int imageId = IMAGE_NOT_AVAILABLE;
-    private static final int IMAGE_NOT_AVAILABLE = -1;
 
-    public String getArtistName() {
+    public String getSongName() {
         return songName;
     }
 
-    public void setArtistName(String pArtistName) {
-        songName = pArtistName;
+    public void setSongName(String songName) {
+        songName = songName;
     }
 
-    public int getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(int pImageId) {
-        imageId = pImageId;
-    }
-
-
-    public Song(String artistName, int artistImageId) {
-        this.songName = artistName;
-        this.imageId = artistImageId;
-
-    }
-
-    public boolean hasImage() {
-        return imageId != IMAGE_NOT_AVAILABLE;
+    public Song(String songName) {
+        this.songName = songName;
     }
 }

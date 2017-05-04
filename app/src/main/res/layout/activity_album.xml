@@ -7,23 +7,37 @@
 	tools:context="com.example.android.musicscstream.AlbumActivity"
 	android:background="@color/colorPrimary">
 
-	<android.support.v7.widget.Toolbar
-		android:id="@+id/album_toolbar"
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
-		android:background="?attr/colorPrimary"
-		android:elevation="4dp"
-		android:theme="@style/ToolbarColoredBackArrow"
-		app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-	<TextView
-		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/album"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="parent"/>
+		android:orientation="vertical">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/album_toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="?attr/colorPrimary"
+			android:elevation="4dp"
+			android:theme="@style/ToolbarColoredBackArrow"
+			app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+		<ImageView
+			android:id="@+id/album_image"
+			android:layout_width="match_parent"
+			android:layout_height="370dp"
+			android:scaleType="fitCenter"
+			android:gravity="center"
+			android:src="@drawable/album1"/>
+
+		<TextView
+			android:id="@+id/album_name"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/activity_horizontal_margin"
+			android:layout_marginTop="@dimen/activity_horizontal_margin"
+			android:text="album 1"
+			style="@style/HeadingLarge"/>
+	</LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

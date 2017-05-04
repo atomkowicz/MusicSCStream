@@ -12,38 +12,35 @@ public class Album implements Serializable {
 
     private ArrayList<Song> songs = new ArrayList<Song>();
 
-
-    public String getArtistName() {
+    public String getAlbumName() {
         return albumName;
     }
 
-    public void setArtistName(String pArtistName) {
-        albumName = pArtistName;
+    public void setAlbumName(String albumName) {
+        this.albumName = albumName;
     }
 
     public int getImageId() {
         return imageId;
     }
 
-    public void setImageId(int pImageId) {
-        imageId = pImageId;
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 
 
-    public Album(String artistName, int artistImageId) {
-        this.albumName = artistName;
+    public Album(String albumName, int artistImageId) {
+        this.albumName = albumName;
         this.imageId = artistImageId;
 
-
         for (int i = 0; i < 8; i++) {
-            songs.add(new Song("Track " + i, R.drawable.album1));
+            songs.add(new Song("Track " + i));
         }
     }
 
     public ArrayList<Song> getSongs() {
         return songs;
     }
-
 
     public boolean hasImage() {
         return imageId != IMAGE_NOT_AVAILABLE;

@@ -1,5 +1,6 @@
 package com.example.android.musicscstream;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -7,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class AlbumActivity extends AppCompatActivity {
 
@@ -20,6 +22,14 @@ public class AlbumActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent intent = getIntent();
+        Album album = (Album) intent.getSerializableExtra("album");
+
+        String albumName = album.getAlbumName();
+
+        TextView nameTextView = (TextView) findViewById(R.id.album_name);
+        nameTextView.setText(albumName);
 
     }
 

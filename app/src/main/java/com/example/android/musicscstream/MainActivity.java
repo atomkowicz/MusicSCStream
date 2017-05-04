@@ -221,19 +221,20 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                     Intent formIntend = new Intent();
-                    Artist art  = new Artist(getContext(), 90, "blbl Artist", R.drawable.artist_1_thumb);
 
                     // Create new intent to open {@link TabbedActivity}
                     switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                         case 1:
                             formIntend = new Intent(getContext(), ArtistActivity.class);
-                            formIntend.putExtra("artist", art);
+                            formIntend.putExtra("artist", artists.get(position));
                             break;
                         case 2:
                             formIntend = new Intent(getContext(), AlbumActivity.class);
+                            formIntend.putExtra("album", albums.get(position));
                             break;
                         case 3:
                             formIntend = new Intent(getContext(), SongActivity.class);
+                            formIntend.putExtra("song", songs.get(position));
                             break;
                     }
 
