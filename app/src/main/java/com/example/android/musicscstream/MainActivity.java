@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -220,26 +219,26 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    Intent formIntend = new Intent();
+                    Intent intent = new Intent();
 
                     // Create new intent to open {@link TabbedActivity}
                     switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                         case 1:
-                            formIntend = new Intent(getContext(), ArtistActivity.class);
-                            formIntend.putExtra("artist", artists.get(position));
+                            intent.setClass(getContext(), ArtistActivity.class);
+                            intent.putExtra("artist", artists.get(position));
                             break;
                         case 2:
-                            formIntend = new Intent(getContext(), AlbumActivity.class);
-                            formIntend.putExtra("album", albums.get(position));
+                            intent.setClass(getContext(), AlbumActivity.class);
+                            intent.putExtra("album", albums.get(position));
                             break;
                         case 3:
-                            formIntend = new Intent(getContext(), SongActivity.class);
-                            formIntend.putExtra("song", songs.get(position));
+                            intent.setClass(getContext(), SongActivity.class);
+                            intent.putExtra("song", songs.get(position));
                             break;
                     }
 
                     // Start the new activity
-                    startActivity(formIntend);
+                    startActivity(intent);
                 }
             });
 

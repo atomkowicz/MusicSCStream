@@ -37,6 +37,14 @@
 			android:layout_marginTop="@dimen/activity_horizontal_margin"
 			android:text="album 1"
 			style="@style/HeadingLarge"/>
+
+		<ImageView
+			android:id="@+id/controls"
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:scaleType="fitCenter"
+			android:src="@drawable/controls"
+			android:layout_marginTop="@dimen/activity_vertical_margin"/>
 	</LinearLayout>
 
 
