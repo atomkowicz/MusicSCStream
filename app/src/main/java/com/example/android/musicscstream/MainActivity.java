@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             int j = i + 1;
             String imgName = "artist_" + j + "_thumb";
             int resID = res.getIdentifier(imgName, "drawable", this.getPackageName());
-            artists.add(new Artist(this, "Artist " + j, resID));
+            artists.add(new Artist(this, j, "Artist " + j, resID));
         }
     }
 
@@ -220,11 +221,13 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                     Intent formIntend = new Intent();
+                    Artist art  = new Artist(getContext(), 90, "blbl Artist", R.drawable.artist_1_thumb);
 
                     // Create new intent to open {@link TabbedActivity}
                     switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                         case 1:
                             formIntend = new Intent(getContext(), ArtistActivity.class);
+                            formIntend.putExtra("artist", art);
                             break;
                         case 2:
                             formIntend = new Intent(getContext(), AlbumActivity.class);

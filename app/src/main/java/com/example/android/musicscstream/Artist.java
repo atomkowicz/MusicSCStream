@@ -2,12 +2,21 @@ package com.example.android.musicscstream;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.Resources;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Artist {
+@SuppressWarnings("serial")
+public class Artist implements Serializable {
 
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double pId) {
+        id = pId;
+    }
+
+    private double id;
     private String artistName;
     private int imageId = IMAGE_NOT_AVAILABLE;
     private static final int IMAGE_NOT_AVAILABLE = -1;
@@ -32,7 +41,8 @@ public class Artist {
     }
 
 
-    public Artist(Context context, String artistName, int artistImageId) {
+    public Artist(Context context, double id, String artistName, int artistImageId) {
+        this.id = id;
         this.artistName = artistName;
         this.imageId = artistImageId;
 

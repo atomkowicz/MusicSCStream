@@ -1,9 +1,10 @@
 package com.example.android.musicscstream;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Album {
+public class Album implements Serializable {
 
     private String albumName;
     private int imageId = IMAGE_NOT_AVAILABLE;
