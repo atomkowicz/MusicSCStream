@@ -29,6 +29,13 @@
 			android:src="@drawable/album1"/>
 
 		<TextView
+			android:id="@+id/artist_info"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="@style/HeadingSmall"
+			android:text="@string/activity_album_purpose"/>
+
+		<TextView
 			android:id="@+id/album_name"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

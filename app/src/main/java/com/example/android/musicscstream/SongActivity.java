@@ -1,10 +1,8 @@
 package com.example.android.musicscstream;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -30,6 +28,18 @@ public class SongActivity extends AppCompatActivity {
 
         TextView nameTextView = (TextView) findViewById(R.id.song_name);
         nameTextView.setText(songName);
+
+        /// TODO: add media player using SoundCloud API
+        // Android framework:
+        // MediaPlayer Class
+        // lLibraries to use:
+        // 'com.google.code.gson:gson:2.8.0'
+        // 'com.squareup.retrofit2:retrofit:2.1.0'
+        // 'com.squareup.retrofit2:converter-gson:2.1.0'
+        // 'com.squareup.picasso:picasso:2.5.2'
+
+        // tutorial:
+        // https://www.sitepoint.com/develop-music-streaming-android-app/
 
     }
 

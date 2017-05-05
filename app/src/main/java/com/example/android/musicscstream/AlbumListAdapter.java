@@ -21,7 +21,7 @@ public class AlbumListAdapter extends ArrayAdapter<Album> {
 
         View listItemView = convertView;
 
-        if (listItemView == null) {
+        if (null == listItemView) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.album_list_item, parent, false);
 
@@ -40,9 +40,24 @@ public class AlbumListAdapter extends ArrayAdapter<Album> {
             TextView singerNameTextView = (TextView) listItemView.findViewById(R.id.list_item_album_name);
             singerNameTextView.setText(album.getAlbumName());
 
+            return listItemView;
+        } else {
+            Album album = getItem(position);
 
+            ImageView imageView = (ImageView) listItemView.findViewById(R.id.list_item_album_image);
+
+
+            imageView.setImageResource(album.getImageId());
+            if (album.hasImage()) {
+                imageView.setVisibility(imageView.VISIBLE);
+            } else {
+                imageView.setVisibility(imageView.GONE);
+            }
+
+            TextView singerNameTextView = (TextView) listItemView.findViewById(R.id.list_item_album_name);
+            singerNameTextView.setText(album.getAlbumName());
+
+            return listItemView;
         }
-
-        return listItemView;
     }
 }

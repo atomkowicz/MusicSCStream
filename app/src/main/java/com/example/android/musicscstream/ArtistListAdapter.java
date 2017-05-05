@@ -22,16 +22,14 @@ public class ArtistListAdapter extends ArrayAdapter<Artist> {
 
         View listItemView = convertView;
 
-        if (listItemView == null) {
+        if (null == listItemView) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.artist_list_item, parent, false);
 
             Artist artist = getItem(position);
-
             ImageView imageView = (ImageView) listItemView.findViewById(R.id.list_item_artist_image);
-
-
             imageView.setImageResource(artist.getImageId());
+
             if (artist.hasImage()) {
                 imageView.setVisibility(imageView.VISIBLE);
             } else {
@@ -41,9 +39,21 @@ public class ArtistListAdapter extends ArrayAdapter<Artist> {
             TextView singerNameTextView = (TextView) listItemView.findViewById(R.id.list_item_artist_name);
             singerNameTextView.setText(artist.getArtistName());
 
+            return listItemView;
+        } else {
+            Artist artist = getItem(position);
+            ImageView imageView = (ImageView) listItemView.findViewById(R.id.list_item_artist_image);
+            imageView.setImageResource(artist.getImageId());
 
+            if (artist.hasImage()) {
+                imageView.setVisibility(imageView.VISIBLE);
+            } else {
+                imageView.setVisibility(imageView.GONE);
+            }
+
+            TextView singerNameTextView = (TextView) listItemView.findViewById(R.id.list_item_artist_name);
+            singerNameTextView.setText(artist.getArtistName());
+            return listItemView;
         }
-
-        return listItemView;
     }
 }

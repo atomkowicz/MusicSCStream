@@ -22,7 +22,6 @@ public class Artist implements Serializable {
     private static final int IMAGE_NOT_AVAILABLE = -1;
 
     private ArrayList<Album> albums = new ArrayList<Album>();
-    private ArrayList<Song> allSongs = new ArrayList<Song>();
 
     public String getArtistName() {
         return artistName;
@@ -49,7 +48,7 @@ public class Artist implements Serializable {
         Resources res = context.getResources();
 
         // Generate albums for current artist
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 3; i++) {
             int j = i + 1;
             String imgName = "album_" + j + "_thumb";
             int resID = res.getIdentifier(imgName, "drawable", context.getPackageName());
@@ -62,6 +61,8 @@ public class Artist implements Serializable {
     }
 
     public ArrayList<Song> getSongs() {
+        ArrayList<Song> allSongs = new ArrayList<Song>();
+
         for (Album album : albums) {
             ArrayList<Song> songs = album.getSongs();
 

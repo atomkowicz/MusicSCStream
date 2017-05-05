@@ -30,6 +30,13 @@
 			android:src="@drawable/now_playing"/>
 
 		<TextView
+			android:id="@+id/artist_info"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			style="@style/HeadingSmall"
+			android:text="@string/activity_song_purpose"/>
+
+		<TextView
 			android:id="@+id/song_name"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

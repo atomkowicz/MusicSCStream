@@ -100,13 +100,13 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //TODO: add seach
+                //TODO: add seach using com.miguelcatalan.materialsearchview
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //TODO: add seach
+                //TODO: add seach using com.miguelcatalan.materialsearchview
                 return true;
             }
         });
@@ -114,12 +114,12 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
-                //TODO: add seach
+                //TODO: add seach using com.miguelcatalan.materialsearchview
             }
 
             @Override
             public void onSearchViewClosed() {
-                //TODO: add seach
+                //TODO: add seach using com.miguelcatalan.materialsearchview
             }
         });
 

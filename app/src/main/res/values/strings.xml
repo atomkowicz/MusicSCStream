@@ -7,4 +7,8 @@
 	<string name="artist">Artist</string>
 	<string name="album">Album</string>
 	<string name="some_details">some details</string>
+	<string name="activity_purpose">Purpose of activity: allows user to browse songs, artists or albums</string>
+	<string name="activity_artist_purpose">Purpose of activity: displaying details about the artist</string>
+	<string name="activity_song_purpose">Purpose of activity: displaying details about the song</string>
+	<string name="activity_album_purpose">Purpose of activity: displaying details about the album</string>
 </resources>

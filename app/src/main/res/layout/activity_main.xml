@@ -83,6 +83,13 @@
 				android:gravity="center_vertical">
 
 				<TextView
+					android:id="@+id/artist_info"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					style="@style/HeadingSmall"
+					android:text="@string/activity_purpose"/>
+
+				<TextView
 					android:id="@+id/selected_track_subtitle"
 					android:paddingStart="@dimen/toolbar_text_padding"
 					android:paddingEnd="@dimen/toolbar_text_padding"

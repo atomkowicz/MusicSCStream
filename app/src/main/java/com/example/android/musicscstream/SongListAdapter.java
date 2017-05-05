@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class SongListAdapter extends ArrayAdapter<Song> {
 
         View listItemView = convertView;
 
-        if (listItemView == null) {
+        if (null == listItemView) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.song_list_item, parent, false);
 
@@ -32,8 +31,17 @@ public class SongListAdapter extends ArrayAdapter<Song> {
             TextView singerNameTextView = (TextView) listItemView.findViewById(R.id.list_item_song_name);
             singerNameTextView.setText(song.getSongName());
 
+            return listItemView;
+
+        } else {
+            Song song = getItem(position);
+
+            TextView singerNameTextView = (TextView) listItemView.findViewById(R.id.list_item_song_name);
+            singerNameTextView.setText(song.getSongName());
+
+            return listItemView;
         }
 
-        return listItemView;
+
     }
 }
