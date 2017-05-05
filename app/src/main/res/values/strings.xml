@@ -9,6 +9,15 @@
 	<string name="some_details">some details</string>
 	<string name="activity_purpose">Purpose of activity: allows user to browse songs, artists or albums</string>
 	<string name="activity_artist_purpose">Purpose of activity: displaying details about the artist</string>
-	<string name="activity_song_purpose">Purpose of activity: displaying details about the song</string>
+	<string name="activity_song_purpose">Purpose of activity: playing songs and displaying details about the them.</string>
+	<string name="activity_info">
+		This application will use SoundCloud API.
+		To play tracks I will use MediaPlayer Class and MediaController.
+		lLibraries to use:
+		com.google.code.gson:gson:2.8.0
+		com.squareup.retrofit2:retrofit:2.1.0
+		com.squareup.retrofit2:converter-gson:2.1.0
+		com.squareup.picasso:picasso:2.5.2
+	</string>
 	<string name="activity_album_purpose">Purpose of activity: displaying details about the album</string>
 </resources>

@@ -29,18 +29,6 @@ public class SongActivity extends AppCompatActivity {
         TextView nameTextView = (TextView) findViewById(R.id.song_name);
         nameTextView.setText(songName);
 
-        /// TODO: add media player using SoundCloud API
-        // Android framework:
-        // MediaPlayer Class
-        // lLibraries to use:
-        // 'com.google.code.gson:gson:2.8.0'
-        // 'com.squareup.retrofit2:retrofit:2.1.0'
-        // 'com.squareup.retrofit2:converter-gson:2.1.0'
-        // 'com.squareup.picasso:picasso:2.5.2'
-
-        // tutorial:
-        // https://www.sitepoint.com/develop-music-streaming-android-app/
-
     }
 
     @Override
