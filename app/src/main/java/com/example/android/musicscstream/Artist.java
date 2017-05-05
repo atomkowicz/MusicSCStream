@@ -52,7 +52,7 @@ public class Artist implements Serializable {
             int j = i + 1;
             String imgName = "album_" + j + "_thumb";
             int resID = res.getIdentifier(imgName, "drawable", context.getPackageName());
-            albums.add(new Album("Album " + i + ", " + artistName, resID));
+            albums.add(new Album("Album " + j + ", " + artistName, resID));
         }
     }
 

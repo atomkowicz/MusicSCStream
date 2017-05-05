@@ -34,7 +34,8 @@ public class Album implements Serializable {
         this.imageId = artistImageId;
 
         for (int i = 0; i < 8; i++) {
-            songs.add(new Song("Track " + i));
+            int j = i + 1;
+            songs.add(new Song("Track " + j));
         }
     }
 

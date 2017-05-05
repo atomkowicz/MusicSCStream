@@ -42,14 +42,15 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Creates and populates list of artists
      */
-    private static ArrayList<Artist> artists = new ArrayList<Artist>();
-    private static ArrayList<Album> albums = new ArrayList<Album>();
-    private static ArrayList<Song> songs = new ArrayList<Song>();
+    private static ArrayList<Artist> artists;
+    private static ArrayList<Album> albums;
+    private static ArrayList<Song> songs;
 
     /**
      * Returns sample list of objects
      */
     public void generateSampleData() {
+        artists = new ArrayList<Artist>();
 
         Resources res = this.getResources();
 
@@ -139,6 +140,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void populateListsOfAlbumsAndSongs() {
+
+        albums = new ArrayList<Album>();
+        songs = new ArrayList<Song>();
 
         for (Artist artist : artists) {
 
